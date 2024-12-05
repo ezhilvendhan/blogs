@@ -1,0 +1,82 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix cmns-cls: <https://www.omg.org/spec/Commons/Classifiers/> .
+@prefix cmns-col: <https://www.omg.org/spec/Commons/Collections/> .
+@prefix cmns-dsg: <https://www.omg.org/spec/Commons/Designators/> .
+@prefix fibo-cae-ce-15022: <https://spec.edmcouncil.org/fibo/ontology/CAE/CorporateEvents/ISO15022-CorporateActionIndividuals/> .
+@prefix fibo-cae-ce-act: <https://spec.edmcouncil.org/fibo/ontology/CAE/CorporateEvents/CorporateActions/> .
+@prefix fibo-cae-ce-srca: <https://spec.edmcouncil.org/fibo/ontology/CAE/CorporateEvents/SecurityRelatedCorporateActions/> .
+@prefix fibo-fnd-rel-rel: <https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/> .
+
+# Stock Split (SPLF)
+fibo-cae-ce-15022:SPLF a fibo-cae-ce-act:BusinessStrategyClassifier ;
+    rdf:type [
+        a owl:Restriction ;
+        owl:onProperty cmns-cls:classifies ;
+        owl:allValuesFrom fibo-cae-ce-srca:StockSplit
+    ] ;
+    rdfs:label "SPLF"@en ;
+    skos:definition "ISO 15022 classifier for corporate actions that involve an increase in a corporation's number of outstanding equities without any change in the shareholder's equity or the aggregate market value at the time of the split"@en ;
+    fibo-fnd-rel-rel:hasTag "SPLF" ;
+    cmns-col:isMemberOf fibo-cae-ce-15022:ISO15022CorporateActionClassificationScheme ;
+    cmns-dsg:isDefinedIn fibo-cae-ce-15022:ISO15022CorporateActionClassificationScheme .
+
+# Cash Dividend (DVCA)
+fibo-cae-ce-15022:DVCA a fibo-cae-ce-act:IncomeOrientedClassifier ;
+    rdf:type [
+        a owl:Restriction ;
+        owl:onProperty cmns-cls:classifies ;
+        owl:allValuesFrom fibo-cae-ce-srca:CashDividendAction
+    ] ;
+    rdfs:label "DVCA"@en ;
+    skos:definition "ISO 15022 classifier for corporate actions that distribute cash to shareholders in proportion to their equity holding"@en ;
+    fibo-fnd-rel-rel:hasTag "DVCA" ;
+    cmns-col:isMemberOf fibo-cae-ce-15022:ISO15022CorporateActionClassificationScheme ;
+    cmns-dsg:isDefinedIn fibo-cae-ce-15022:ISO15022CorporateActionClassificationScheme .
+
+# Merger (MRGR)
+fibo-cae-ce-15022:MRGR a fibo-cae-ce-act:BusinessStrategyClassifier ;
+    rdf:type [
+        a owl:Restriction ;
+        owl:onProperty cmns-cls:classifies ;
+        owl:allValuesFrom fibo-cae-ce-srca:PostMergerSecuritiesExchange
+    ] ;
+    rdfs:label "MRGR"@en ;
+    skos:definition "ISO 15022 classifier for corporate actions that involve the exchange of outstanding securities, initiated by the issuer which may include options, as the result of two or more companies combining assets, that is, an external, third party company"@en ;
+    fibo-fnd-rel-rel:hasTag "MRGR" ;
+    cmns-col:isMemberOf fibo-cae-ce-15022:ISO15022CorporateActionClassificationScheme ;
+    cmns-dsg:isDefinedIn fibo-cae-ce-15022:ISO15022CorporateActionClassificationScheme .
+
+# Bonus Issue (BONU)
+fibo-cae-ce-15022:BONU a fibo-cae-ce-act:BusinessStrategyClassifier ;
+    rdf:type [
+        a owl:Restriction ;
+        owl:onProperty cmns-cls:classifies ;
+        owl:allValuesFrom fibo-cae-ce-srca:BonusIssue
+    ] ;
+    rdfs:label "BONU"@en ;
+    skos:definition "ISO 15022 classifier for corporate actions in which security holders are awarded additional assets free of payment from the issuer in proportion to their holding"@en ;
+    fibo-fnd-rel-rel:hasTag "BONU" ;
+    cmns-col:isMemberOf fibo-cae-ce-15022:ISO15022CorporateActionClassificationScheme ;
+    cmns-dsg:isDefinedIn fibo-cae-ce-15022:ISO15022CorporateActionClassificationScheme .
+
+# Rights Issue (RHDI)
+fibo-cae-ce-15022:RHDI a fibo-cae-ce-act:BusinessStrategyClassifier ;
+    rdf:type [
+        a owl:Restriction ;
+        owl:onProperty cmns-cls:classifies ;
+        owl:allValuesFrom fibo-cae-ce-srca:IntermediateSecuritiesDistribution
+    ] ;
+    rdfs:label "RHDI"@en ;
+    skos:definition "ISO 15022 classifier for corporate actions involving the distribution of intermediate securities or privilege that gives the holder the right to take part in a future event"@en ;
+    fibo-fnd-rel-rel:hasTag "RHDI" ;
+    cmns-col:isMemberOf fibo-cae-ce-15022:ISO15022CorporateActionClassificationScheme ;
+    cmns-dsg:isDefinedIn fibo-cae-ce-15022:ISO15022CorporateActionClassificationScheme .
+
+# Classification Scheme
+fibo-cae-ce-15022:ISO15022CorporateActionClassificationScheme a fibo-cae-ce-act:ActionClassificationScheme ;
+    rdfs:label "ISO 15022 corporate action classification scheme" ;
+    skos:definition "scheme for classifying corporate actions according to ISO 15022 Securities - Scheme for Messages (Data Field Dictionary)" .
